@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>𝐄𝐥𝐙𝐨𝐳 Academic Portal - Civil Engineering</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --primary: #0284c7;
+            --primary-hover: #0369a1;
+            --accent: #38bdf8;
+            --border: #e2e8f0;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #090d16;
+            --card-bg: #111827;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #38bdf8;
+            --primary-hover: #0ea5e9;
+            --accent: #0284c7;
+            --border: #1f2937;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: background 0.3s, color 0.3s;
+            position: relative;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 850px;
+        }
+
+        /* Header Card */
+        .header-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .university-logos {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .logo-img {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: var(--bg-color);
+            border: 3px solid var(--primary);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+            transition: transform 0.2s;
+        }
+
+        .logo-img:hover {
+            transform: scale(1.08);
+        }
+
+        .brand-area h1 {
+            font-size: 1.7rem;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: 1px;
+        }
+
+        .brand-area p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        .mode-switch {
+            background: var(--bg-color);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+
+        .mode-switch:hover {
+            border-color: var(--primary);
+        }
+
+        /* Blessing Banner */
+        .blessing-card {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.1), rgba(56, 189, 248, 0.05));
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 15px 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .blessing-card .prophet {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .blessing-card .ayah {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Main Card */
+        .main-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .grid-item {
+            background: var(--bg-color);
+            border: 2px solid var(--border);
+            border-radius: 14px;
+            padding: 20px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: 0.2s;
+            color: var(--text-main);
+        }
+
+        .grid-item:hover {
+            border-color: var(--primary);
+            background: rgba(2, 132, 199, 0.03);
+            transform: translateY(-2px);
+        }
+
+        .action-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .action-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .action-btn.back-btn {
+            background: #f59e0b;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+        }
+
+        .action-btn.back-btn:hover {
+            background: #d97706;
+        }
+
+        /* Floating Support Button */
+        .support-float-btn {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            z-index: 1000;
+        }
+
+        .support-float-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 25px;
+            border-radius: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: var(--shadow);
+        }
+
+        .modal-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .modal-input {
+            width: 100%;
+            background: var(--bg-color);
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .modal-input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Support Button -->
+    <button class="support-float-btn" onclick="openSupportModal()">
+        💬 تواصل مع 𝐄𝐥𝐙𝐨𝐳
+    </button>
+
+    <!-- Support Modal -->
+    <div class="modal-overlay" id="supportModal">
+        <div class="modal-card">
+            <h3>بلغ عن مشكلة أو استفسار</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">الرسالة هتوصل لـ 𝐄𝐥𝐙𝐨𝐳 بخط عريض ومعها وقت الشكوى.</p>
+            <input type="text" id="studentName" class="modal-input" placeholder="اسمك الكريم...">
+            <textarea id="studentIssue" class="modal-input" rows="4" placeholder="اكتب المشكلة أو الملاحظة هنا..."></textarea>
+            <div style="display: flex; gap: 10px;">
+                <button class="action-btn back-btn" onclick="closeSupportModal()" style="flex:1;">إلغاء</button>
+                <button class="action-btn" onclick="sendToWhatsApp()" style="flex:1;">إرسال 🚀</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Header Card -->
+        <div class="header-card">
+            <div class="brand-container">
+                <div class="university-logos">
+                    <!-- 1. شعار الجامعة -->
+                    <img src="https://lh3.googleusercontent.com/d/1u4s63VYW7X2nJ9E3MvnQbl-cg6B9c6rP" alt="شعار الجامعة" class="logo-img" title="شعار الجامعة">
+                    <!-- 2. شعار الكلية -->
+                    <img src="https://lh3.googleusercontent.com/d/14uW-UNwMxfsT_IPrfhLHF4SDFNjvFUhi" alt="شعار الكلية" class="logo-img" title="شعار الكلية">
+                    <!-- 3. شعار الموسوعة ELZOZ الفخم -->
+                    <img src="https://lh3.googleusercontent.com/d/1tG_w4eus0AKMnBuYLoODsSyQPRculvok" alt="شعار الموسوعة ELZOZ" class="logo-img" title="شعار الموسوعة الشاملة ELZOZ">
+                </div>
+                <div class="brand-area">
+                    <h1>🏛️ 𝐄𝐥𝐙𝐨𝐳 Portal</h1>
+                    <p>المنصة الهندسية المتكاملة | إعداد: Zizo Alshora</p>
+                </div>
+            </div>
+            <button class="mode-switch" id="modeSwitch" onclick="toggleTheme()">
+                <span id="modeIcon">🌙</span> <span id="modeText">الوضع الليلي</span>
+            </button>
+        </div>
+
+        <!-- Blessing Banner -->
+        <div class="blessing-card">
+            <div class="prophet">صلي علي سيدنا محمد ﷺ 🤍</div>
+            <div class="ayah">﴿ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴾</div>
+        </div>
+
+        <!-- Screen 1: Main Categories -->
+        <div class="main-card" id="main-screen">
+            <div class="section-title">🎯 اختر القسم الرئيسي:</div>
+            <div class="grid-container">
+                <div class="grid-item" onclick="selectMainCategory('academic')">📚 الدراسة الأكاديمية</div>
+                <div class="grid-item" onclick="selectMainCategory('encyclopedia')">📖 الموسوعة الشاملة</div>
+            </div>
+        </div>
+
+        <!-- Screen 2: Select Level (Academic) -->
+        <div class="main-card hidden" id="level-screen">
+            <div class="section-title">🎓 اختر المستوى الدراسي:</div>
+            <div class="grid-container" id="levels-grid"></div>
+            <button class="action-btn back-btn" onclick="backToMain()">← العودة للرئيسية</button>
+        </div>
+
+        <!-- Screen 2-B: Encyclopedia Sub-categories -->
+        <div class="main-card hidden" id="encyclopedia-categories-screen">
+            <div class="section-title">📖 أقسام الموسوعة الشاملة:</div>
+            <div class="grid-container">
+                <div class="grid-item" onclick="selectEncyclopediaSub('programs')">💻 قسم البرامج</div>
+                <div class="grid-item" onclick="selectEncyclopediaSub('courses')">📺 قسم الكورسات الهندسية</div>
+                <div class="grid-item" onclick="selectEncyclopediaSub('books')">📚 قسم الكتب الهندسية</div>
+            </div>
+            <button class="action-btn back-btn" onclick="backToMain()">← العودة للرئيسية</button>
+        </div>
+
+        <!-- Screen 3: Select Term -->
+        <div class="main-card hidden" id="term-screen">
+            <div id="selected-level-title" style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 10px;">المستوى</div>
+            <div class="section-title">📅 اختر الترم:</div>
+            <div class="grid-container">
+                <div class="grid-item" onclick="selectTerm('الترم الأول')">الترم الأول</div>
+                <div class="grid-item" onclick="selectTerm('الترم الثاني')">الترم الثاني</div>
+            </div>
+            <button class="action-btn back-btn" onclick="backToLevels()">← عودة للمستويات</button>
+        </div>
+
+        <!-- Screen 4: Select Subject -->
+        <div class="main-card hidden" id="subjects-screen">
+            <div id="selected-path-title" style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 10px;">مسار الدراسة</div>
+            <div class="section-title">📚 اختر المادة الدراسية:</div>
+            <div class="grid-container" id="subjects-grid"></div>
+            <button class="action-btn back-btn" onclick="backToTerms()">← عودة للترمات</button>
+        </div>
+
+        <!-- Screen 4-B: Dynamic Items Grid for Encyclopedia Sub-sections -->
+        <div class="main-card hidden" id="encyclopedia-items-screen">
+            <div id="encyclopedia-screen-title" style="font-size: 1.2rem; font-weight: 900; color: var(--primary); margin-bottom: 15px;">عنوان القسم</div>
+            <div class="grid-container" id="encyclopedia-items-grid"></div>
+            <button class="action-btn back-btn" onclick="backToEncyclopediaCategories()">← عودة لأقسام الموسوعة</button>
+        </div>
+
+        <!-- Screen 5: Academic Categories -->
+        <div class="main-card hidden" id="categories-screen">
+            <div id="selected-item-title" style="font-size: 1.3rem; font-weight: 900; color: var(--primary); margin-bottom: 20px;">العنوان</div>
+            <div class="section-title">اختر القسم المطلوب:</div>
+            <div class="grid-container">
+                <div class="grid-item" onclick="openContent('lectures')">📖 المحاضرات والشروحات</div>
+                <div class="grid-item" onclick="openContent('youtube')">📺 شروحات اليوتيوب</div>
+                <div class="grid-item" onclick="openContent('quizzes')">⚡ الكويزات التفاعلية</div>
+                <div class="grid-item" onclick="openContent('exams')">📋 الامتحانات القديمة</div>
+                <div class="grid-item" onclick="openContent('sheets')">📝 حلول الشيتات</div>
+            </div>
+            <button class="action-btn back-btn" onclick="backToSubjectsScreen()">← العودة للمواد</button>
+        </div>
+
+        <!-- Screen 5-B: Single Item Content View -->
+        <div class="main-card hidden" id="single-item-screen">
+            <div id="single-item-header" style="font-size: 1.3rem; font-weight: 900; color: var(--primary); margin-bottom: 15px;">العنوان</div>
+            <div id="single-item-body" style="background: var(--bg-color); border: 1px solid var(--border); padding: 20px; border-radius: 12px; margin-bottom: 20px;"></div>
+            <button class="action-btn back-btn" onclick="backToEncyclopediaItemsScreen()">← عودة للقائمة</button>
+        </div>
+
+        <!-- Screen 6: Final Academic Content View -->
+        <div class="main-card hidden" id="content-screen">
+            <div id="content-header-title" style="font-size: 1.2rem; font-weight: 900; color: var(--primary); margin-bottom: 15px;">عنوان المحتوى</div>
+            <div id="content-body" style="margin-bottom: 20px; color: var(--text-muted);">
+                جاري إقرار المحتوى...
+            </div>
+            <button class="action-btn back-btn" onclick="backToCategories()">← عودة للأقسام</button>
+        </div>
+    </div>
+
+    <script>
+        const levels = ["Freshman (إعدادي)", "Sophomore (سنة ثانية)", "Junior (سنة تالته)", "Senior 1 (سنة رابعة - ترم 1)", "Senior 2 (سنة رابعة - ترم 2)"];
+        
+        const subjectsData = {
+            "Freshman (إعدادي)-الترم الأول": [
+                "BAS 011 - Engineering Mathematics 1[cite: 1]",
+                "BAS 021 - Engineering Physics 1[cite: 1]",
+                "MEC 051 - Engineering Drawing & Projection[cite: 1]",
+                "GEN 002 - English Language 1[cite: 1]"
+            ],
+            "Freshman (إعدادي)-الترم الثاني": [
+                "BAS 012 - Engineering Mathematics 2[cite: 1]",
+                "BAS 022 - Engineering Physics 2[cite: 1]",
+                "MEC 022 - Engineering Mechanics[cite: 1]",
+                "BAS 031 - Engineering Chemistry[cite: 1]",
+                "MEC 052 - Manufacturing Technology[cite: 1]",
+                "CCE 001 - Introduction to Computers[cite: 1]"
+            ],
+            "Sophomore (سنة ثانية)-الترم الأول": [
+                "BAS 111 - Engineering Mathematics 3[cite: 1]",
+                "MEC 151 - Computer Aided Drawing[cite: 1]",
+                "GEN 101 - English Language 2[cite: 1]",
+                "CIV 111 - Structural Analysis 1[cite: 1]",
+                "CIV 121 - Properties & Strength of Materials[cite: 1]",
+                "CIV 131 - Engineering Surveying 1[cite: 1]"
+            ],
+            "Sophomore (سنة ثانية)-الترم الثاني": [
+                "BAS 113 - Statistics & Numerical Analysis[cite: 1]",
+                "ARC 130 - Basic Building Construction[cite: 1]",
+                "CIV 141 - Civil Engineering Drawing[cite: 1]",
+                "CIV 112 - Structural Analysis 2[cite: 1]",
+                "CIV 122 - Building Construction Materials[cite: 1]",
+                "CIV 142 - Engineering Fluid Mechanics[cite: 1]"
+            ],
+            "Junior (سنة تالته)-الترم الأول": [
+                "CIV 280 - Engineering Economy[cite: 1]",
+                "GEN 201 - Technical Report Writing[cite: 1]",
+                "CIV 211 - Stress Analysis in Structures[cite: 1]",
+                "CIV 251 - Design of RC Structures 1[cite: 1]",
+                "CIV 221 - Concrete Technology & Quality Control[cite: 1]",
+                "CIV 231 - Engineering Surveying 2[cite: 1]",
+                "CIV 241 - Open Channel Hydraulics[cite: 1]"
+            ],
+            "Junior (سنة تالته)-الترم الثاني": [
+                "GEN XXX - Humanities Elective 1[cite: 1]",
+                "CIV 291 - Transportation Planning & Traffic Engineering[cite: 1]",
+                "CIV 281 - Construction Contracts[cite: 1]",
+                "CIV 252 - Design of RC Structures 2[cite: 1]",
+                "CIV 261 - Geotechnical Engineering 1[cite: 1]",
+                "CIV 242 - Irrigation & Drainage[cite: 1]"
+            ],
+            "Senior 1 (سنة رابعة - ترم 1)-الترم الأول": [
+                "GEN XXX - Humanities Elective 2[cite: 1]",
+                "CIV 341 - Design of Water Structures 1[cite: 1]",
+                "CIV 331 - Geodesy & Surveying[cite: 1]",
+                "CIV 351 - Design of RC Structures 3[cite: 1]",
+                "CIV 361 - Geotechnical Engineering 2[cite: 1]",
+                "CIV 371 - Design of Steel Structures 1[cite: 1]",
+                "CIV 200 - Practical Training 1[cite: 1]"
+            ],
+            "Senior 1 (سنة رابعة - ترم 1)-الترم الثاني": [
+                "CIV 343 - Design of Water Structures 2[cite: 1]",
+                "CIV 362 - Geotechnical Engineering 3[cite: 1]",
+                "CIV 391 - Highway Engineering 1[cite: 1]",
+                "CIV 342 - Sanitary Engineering[cite: 1]",
+                "CIV 400A - Graduation Project (1)[cite: 1]"
+            ],
+            "Senior 2 (سنة رابعة - ترم 2)-الترم الأول": [
+                "GEN XXX - Humanities Elective 3[cite: 1]",
+                "CIV 441 - Harbors & Navigation & Shore Protection[cite: 1]",
+                "CIV 4XX - Elective List (1)[cite: 1]",
+                "CIV 4XX - Elective List (2)[cite: 1]",
+                "CIV 471 - Design of Steel Structures 2[cite: 1]",
+                "CIV 491 - Highway Engineering 2[cite: 1]",
+                "CIV 300 - Practical Training 2[cite: 1]"
+            ],
+            "Senior 2 (سنة رابعة - ترم 2)-الترم الثاني": [
+                "GEN XXX - Humanities Elective 4[cite: 1]",
+                "CIV 4XX - Elective List (3)[cite: 1]",
+                "CIV 4XX - Elective List (4)[cite: 1]",
+                "CIV 4XX - Elective List (5)[cite: 1]",
+                "CIV 400B - Graduation Project (2)[cite: 1]"
+            ]
+        };
+
+        const materialsDriveLinks = {};
+
+        const encyclopediaData = {
+            "programs": {
+                title: "💻 قسم البرامج الهندسية",
+                items: [
+                    { name: "AutoCAD", url: "#" },
+                    { name: "Civil 3D", url: "#" },
+                    { name: "Autodesk Student", url: "#" },
+                    { name: "watersewer", url: "#" },
+                    { name: "Microsoft Office", url: "#" },
+                    { name: "CSI ETABS", url: "#" },
+                    { name: "SAP2000", url: "#" },
+                    { name: "Primavera", url: "#" },
+                    { name: "CSI Column 10", url: "#" },
+                    { name: "Robot Structural Analysis V22", url: "#" },
+                    { name: "IDEA StatiCa", url: "#" },
+                    { name: "Revit", url: "#" },
+                    { name: "3DS Max", url: "#" },
+                    { name: "Navisworks", url: "#" }
+                ]
+            },
+            "courses": {
+                title: "📺 قسم الكورسات الهندسية",
+                items: [
+                    { name: "أوتوكاد", url: "#" },
+                    { name: "ريفيت", url: "#" },
+                    { name: "ساب", url: "#" },
+                    { name: "مكتب فني", url: "#" },
+                    { name: "شوب دروينج", url: "#" },
+                    { name: "بريمافيرا", url: "#" },
+                    { name: "إعداد مهندس موقع", url: "#" },
+                    { name: "إيتابس", url: "#" },
+                    { name: "سيف (CSI SAFE)", url: "#" },
+                    { name: "ستاود برو (STAAD.Pro)", url: "#" },
+                    { name: "تصميم إنشائي", url: "#" },
+                    { name: "تيكلا (Tekla Structures)", url: "#" },
+                    { name: "نافس وركس", url: "#" },
+                    { name: "ستيل", url: "#" },
+                    { name: "تصميم شركات مياه", url: "#" },
+                    { name: "تصميم شبكات صرف", url: "#" },
+                    { name: "إيه سي سي (ACC)", url: "#" }
+                ]
+            },
+            "books": {
+                title: "📚 قسم الكتب الهندسية",
+                items: [
+                    { name: "خرسانة", url: "#" },
+                    { name: "ستيل", url: "#" },
+                    { name: "كتب هندسية عامة", url: "#" },
+                    { name: "رودز (Roads)", url: "#" },
+                    { name: "الكود المصري للمستشفيات", url: "#" },
+                    { name: "البيم (BIM Books)", url: "#" }
+                ]
+            }
+        };
+
+        let selectedLevel = "";
+        let selectedTerm = "";
+        let currentItemName = "";
+        let currentMode = "";
+        let activeEncyclopediaKey = "";
+        const myPhoneNumber = "201032773739"; 
+
+        function initLevels() {
+            const grid = document.getElementById('levels-grid');
+            grid.innerHTML = '';
+            levels.forEach(lvl => {
+                const div = document.createElement('div');
+                div.className = 'grid-item';
+                div.innerText = lvl;
+                div.onclick = () => chooseLevel(lvl);
+                grid.appendChild(div);
+            });
+        }
+
+        function selectMainCategory(mode) {
+            currentMode = mode;
+            document.getElementById('main-screen').classList.add('hidden');
+            if (mode === 'academic') {
+                document.getElementById('level-screen').classList.remove('hidden');
+                initLevels();
+            } else {
+                document.getElementById('encyclopedia-categories-screen').classList.remove('hidden');
+            }
+        }
+
+        function selectEncyclopediaSub(subKey) {
+            activeEncyclopediaKey = subKey;
+            const data = encyclopediaData[subKey];
+            
+            document.getElementById('encyclopedia-screen-title').innerText = data.title;
+            const grid = document.getElementById('encyclopedia-items-grid');
+            grid.innerHTML = '';
+
+            data.items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'grid-item';
+                div.innerText = item.name;
+                div.onclick = () => chooseEncyclopediaItem(item.name, item.url);
+                grid.appendChild(div);
+            });
+
+            document.getElementById('encyclopedia-categories-screen').classList.add('hidden');
+            document.getElementById('encyclopedia-items-screen').classList.remove('hidden');
+        }
+
+        function chooseEncyclopediaItem(itemName, itemUrl) {
+            document.getElementById('single-item-header').innerText = itemName;
+            const bodyContent = document.getElementById('single-item-body');
+            
+            bodyContent.innerHTML = `
+                <p style="margin-bottom: 15px; color: var(--text-muted);">رابط التحميل أو المحتوى الخاص بـ <strong style="color:var(--primary);">${itemName}</strong>:</p>
+                <a href="${itemUrl}" target="_blank" class="action-btn">تحميل / مشاهدة المحتوى 📁</a>
+            `;
+
+            document.getElementById('encyclopedia-items-screen').classList.add('hidden');
+            document.getElementById('single-item-screen').classList.remove('hidden');
+        }
+
+        function chooseLevel(lvl) {
+            selectedLevel = lvl;
+            document.getElementById('selected-level-title').innerText = `المستوى: ${lvl}`;
+            document.getElementById('level-screen').classList.add('hidden');
+            document.getElementById('term-screen').classList.remove('hidden');
+        }
+
+        function selectTerm(term) {
+            selectedTerm = term;
+            document.getElementById('selected-path-title').innerText = `${selectedLevel} - ${term}`;
+            document.getElementById('term-screen').classList.add('hidden');
+            document.getElementById('subjects-screen').classList.remove('hidden');
+            
+            const grid = document.getElementById('subjects-grid');
+            grid.innerHTML = '';
+            
+            const key = `${selectedLevel}-${term}`;
+            const list = subjectsData[key] || ["محتوى مواد هذا الترم سيضاف قريباً"];
+            
+            list.forEach(sub => {
+                const div = document.createElement('div');
+                div.className = 'grid-item';
+                div.innerText = sub;
+                div.onclick = () => chooseSubject(sub);
+                grid.appendChild(div);
+            });
+        }
+
+        function chooseSubject(subName) {
+            currentItemName = subName;
+            document.getElementById('selected-item-title').innerText = `المادة: ${subName}`;
+            document.getElementById('subjects-screen').classList.add('hidden');
+            document.getElementById('categories-screen').classList.remove('hidden');
+        }
+
+        function backToMain() {
+            document.getElementById('level-screen').classList.add('hidden');
+            document.getElementById('encyclopedia-categories-screen').classList.add('hidden');
+            document.getElementById('main-screen').classList.remove('hidden');
+        }
+
+        function backToEncyclopediaCategories() {
+            document.getElementById('encyclopedia-items-screen').classList.add('hidden');
+            document.getElementById('encyclopedia-categories-screen').classList.remove('hidden');
+        }
+
+        function backToEncyclopediaItemsScreen() {
+            document.getElementById('single-item-screen').classList.add('hidden');
+            document.getElementById('encyclopedia-items-screen').classList.remove('hidden');
+        }
+
+        function backToLevels() {
+            document.getElementById('term-screen').classList.add('hidden');
+            document.getElementById('level-screen').classList.remove('hidden');
+        }
+
+        function backToTerms() {
+            document.getElementById('subjects-screen').classList.add('hidden');
+            document.getElementById('term-screen').classList.remove('hidden');
+        }
+
+        function backToSubjectsScreen() {
+            document.getElementById('categories-screen').classList.add('hidden');
+            document.getElementById('subjects-screen').classList.remove('hidden');
+        }
+
+        function openContent(categoryKey) {
+            document.getElementById('categories-screen').classList.add('hidden');
+            document.getElementById('content-screen').classList.remove('hidden');
+
+            const titles = {
+                'lectures': '📖 المحاضرات والشروحات',
+                'youtube': '📺 شروحات اليوتيوب',
+                'quizzes': '⚡ الكويزات التفاعلية',
+                'exams': '📋 الامتحانات القديمة',
+                'sheets': '📝 حلول الشيتات'
+            };
+
+            document.getElementById('content-header-title').innerText = `${currentItemName} - ${titles[categoryKey]}`;
+            
+            let targetUrl = "#";
+            if (materialsDriveLinks[currentItemName] && materialsDriveLinks[currentItemName][categoryKey]) {
+                targetUrl = materialsDriveLinks[currentItemName][categoryKey];
+            }
+
+            document.getElementById('content-body').innerHTML = `
+                <div style="background: var(--bg-color); border: 1px solid var(--border); padding: 20px; border-radius: 12px;">
+                    <p style="margin-bottom: 10px;">الملفات والفيديوهات الخاصة بقسم <strong>${titles[categoryKey]}</strong>:</p>
+                    <a href="${targetUrl}" target="_blank" class="action-btn">تحميل الملف / مشاهدة المحتوى 📁</a>
+                </div>
+            `;
+        }
+
+        function backToCategories() {
+            document.getElementById('content-screen').classList.add('hidden');
+            document.getElementById('categories-screen').classList.remove('hidden');
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const modeIcon = document.getElementById('modeIcon');
+            const modeText = document.getElementById('modeText');
+
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                modeIcon.innerText = '🌙';
+                modeText.innerText = 'الوضع الليلي';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                modeIcon.innerText = '☀️';
+                modeText.innerText = 'الوضع النهاري';
+            }
+        }
+
+        function openSupportModal() {
+            document.getElementById('supportModal').style.display = 'flex';
+        }
+
+        function closeSupportModal() {
+            document.getElementById('supportModal').style.display = 'none';
+        }
+
+        function sendToWhatsApp() {
+            const name = document.getElementById('studentName').value.trim();
+            const issue = document.getElementById('studentIssue').value.trim();
+
+            if (!name || !issue) {
+                alert('من فضلك اكتب اسمك والملاحظة أو المشكلة أولاً!');
+                return;
+            }
+
+            const now = new Date();
+            const timeString = now.toLocaleString('ar-EG');
+
+            const message = `*⚠️ رسالة دعم جديدة من منصة 𝐄𝐥𝐙𝐨𝐳*%0A*👤 اسم الطالب:* ${name}%0A*📝 الشكوى / الاستفسار:* ${issue}%0A*⏱️ التاريخ والوقت:* ${timeString}`;
+            const whatsappUrl = `https://wa.me/${myPhoneNumber}?text=${message}`;
+            
+            window.open(whatsappUrl, '_blank');
+            closeSupportModal();
+        }
+    </script>
+</body>
+</html>
