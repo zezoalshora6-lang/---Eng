@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>𝐄𝐥𝐙𝐨𝐳 Academic Portal - Civil Engineering</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Reem+Kufi:wght@700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #f8fafc;
@@ -54,7 +54,6 @@
             max-width: 850px;
         }
 
-        /* Header Card */
         .header-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -63,28 +62,55 @@
             box-shadow: var(--shadow);
             margin-bottom: 20px;
             display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .top-brand-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .fancy-title {
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .top-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 10px rgba(2, 132, 199, 0.2);
+        }
+
+        .header-main-content {
+            display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
         }
 
-        .brand-container {
+        .right-side-brand {
             display: flex;
             align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .university-logos {
-            display: flex;
-            gap: 12px;
-            align-items: center;
+            gap: 15px;
         }
 
         .logo-img {
-            width: 75px;
-            height: 75px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             object-fit: cover;
             background: var(--bg-color);
@@ -97,17 +123,23 @@
             transform: scale(1.08);
         }
 
-        .brand-area h1 {
-            font-size: 1.7rem;
+        .brand-text h1 {
+            font-size: 1.3rem;
             font-weight: 900;
-            color: var(--primary);
-            letter-spacing: 1px;
+            color: var(--text-main);
         }
 
-        .brand-area p {
+        .brand-text p {
             font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 4px;
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: 3px;
+        }
+
+        .left-side-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .mode-switch {
@@ -129,7 +161,6 @@
             border-color: var(--primary);
         }
 
-        /* Blessing Banner */
         .blessing-card {
             background: linear-gradient(135deg, rgba(2, 132, 199, 0.1), rgba(56, 189, 248, 0.05));
             border: 1px solid var(--border);
@@ -152,7 +183,6 @@
             font-style: italic;
         }
 
-        /* Main Card */
         .main-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -227,7 +257,6 @@
             background: #d97706;
         }
 
-        /* Floating Support Button */
         .support-float-btn {
             position: fixed;
             bottom: 25px;
@@ -252,7 +281,6 @@
             transform: scale(1.05);
         }
 
-        /* Modal */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -305,12 +333,10 @@
 </head>
 <body>
 
-    <!-- Floating Support Button -->
     <button class="support-float-btn" onclick="openSupportModal()">
         💬 تواصل مع 𝐄𝐥𝐙𝐨𝐳
     </button>
 
-    <!-- Support Modal -->
     <div class="modal-overlay" id="supportModal">
         <div class="modal-card">
             <h3>بلغ عن مشكلة أو استفسار</h3>
@@ -325,28 +351,30 @@
     </div>
 
     <div class="container">
-        <!-- Header Card -->
         <div class="header-card">
-            <div class="brand-container">
-                <div class="university-logos">
-                    <!-- 1. شعار الجامعة -->
+            <div class="top-brand-bar">
+                <span class="fancy-title">✨ 𝐄𝐥𝐙𝐨𝐳 Portal ✨</span>
+                <img src="https://lh3.googleusercontent.com/d/1tG_w4eus0AKMnBuYLoODsSyQPRculvok" alt="شعار الموسوعة" class="top-logo" title="شعار الموسوعة الشاملة">
+            </div>
+
+            <div class="header-main-content">
+                <div class="right-side-brand">
                     <img src="https://lh3.googleusercontent.com/d/1u4s63VYW7X2nJ9E3MvnQbl-cg6B9c6rP" alt="شعار الجامعة" class="logo-img" title="شعار الجامعة">
-                    <!-- 2. شعار الكلية -->
-                    <img src="https://lh3.googleusercontent.com/d/14uW-UNwMxfsT_IPrfhLHF4SDFNjvFUhi" alt="شعار الكلية" class="logo-img" title="شعار الكلية">
-                    <!-- 3. شعار الموسوعة ELZOZ الفخم -->
-                    <img src="https://lh3.googleusercontent.com/d/1tG_w4eus0AKMnBuYLoODsSyQPRculvok" alt="شعار الموسوعة ELZOZ" class="logo-img" title="شعار الموسوعة الشاملة ELZOZ">
+                    <div class="brand-text">
+                        <h1>Zaid Alshora</h1>
+                        <p>Civil Engineering Dept.</p>
+                    </div>
                 </div>
-                <div class="brand-area">
-                    <h1>🏛️ 𝐄𝐥𝐙𝐨𝐳 Portal</h1>
-                    <p>المنصة الهندسية المتكاملة | إعداد: Zizo Alshora</p>
+
+                <div class="left-side-controls">
+                    <img src="https://lh3.googleusercontent.com/d/14uW-UNwMxfsT_IPrfhLHF4SDFNjvFUhi" alt="شعار الكلية" class="logo-img" title="شعار الكلية">
+                    <button class="mode-switch" id="modeSwitch" onclick="toggleTheme()">
+                        <span id="modeIcon">🌙</span> <span id="modeText">الوضع الليلي</span>
+                    </button>
                 </div>
             </div>
-            <button class="mode-switch" id="modeSwitch" onclick="toggleTheme()">
-                <span id="modeIcon">🌙</span> <span id="modeText">الوضع الليلي</span>
-            </button>
         </div>
 
-        <!-- Blessing Banner -->
         <div class="blessing-card">
             <div class="prophet">صلي علي سيدنا محمد ﷺ 🤍</div>
             <div class="ayah">﴿ وَقُل رَّبِّ زِدْنِي عِلْمًا ﴾</div>
@@ -379,14 +407,11 @@
             <button class="action-btn back-btn" onclick="backToMain()">← العودة للرئيسية</button>
         </div>
 
-        <!-- Screen 3: Select Term -->
+        <!-- Screen 3: Select Term (or Freshman options) -->
         <div class="main-card hidden" id="term-screen">
             <div id="selected-level-title" style="font-size: 1.1rem; font-weight: 700; color: var(--primary); margin-bottom: 10px;">المستوى</div>
-            <div class="section-title">📅 اختر الترم:</div>
-            <div class="grid-container">
-                <div class="grid-item" onclick="selectTerm('الترم الأول')">الترم الأول</div>
-                <div class="grid-item" onclick="selectTerm('الترم الثاني')">الترم الثاني</div>
-            </div>
+            <div class="section-title" id="term-section-title">📅 اختر القسم أو الترم:</div>
+            <div class="grid-container" id="term-grid-container"></div>
             <button class="action-btn back-btn" onclick="backToLevels()">← عودة للمستويات</button>
         </div>
 
@@ -409,13 +434,8 @@
         <div class="main-card hidden" id="categories-screen">
             <div id="selected-item-title" style="font-size: 1.3rem; font-weight: 900; color: var(--primary); margin-bottom: 20px;">العنوان</div>
             <div class="section-title">اختر القسم المطلوب:</div>
-            <div class="grid-container">
-                <div class="grid-item" onclick="openContent('lectures')">📖 المحاضرات والشروحات</div>
-                <div class="grid-item" onclick="openContent('youtube')">📺 شروحات اليوتيوب</div>
-                <div class="grid-item" onclick="openContent('quizzes')">⚡ الكويزات التفاعلية</div>
-                <div class="grid-item" onclick="openContent('exams')">📋 الامتحانات القديمة</div>
-                <div class="grid-item" onclick="openContent('sheets')">📝 حلول الشيتات</div>
-            </div>
+            <!-- حاوية الأقسام التي تتغير بناءً على نوع المادة (عادية أم تحديد مستوى) -->
+            <div class="grid-container" id="dynamic-categories-grid"></div>
             <button class="action-btn back-btn" onclick="backToSubjectsScreen()">← العودة للمواد</button>
         </div>
 
@@ -437,91 +457,140 @@
     </div>
 
     <script>
-        const levels = ["Freshman (إعدادي)", "Sophomore (سنة ثانية)", "Junior (سنة تالته)", "Senior 1 (سنة رابعة - ترم 1)", "Senior 2 (سنة رابعة - ترم 2)"];
+        const levels = [
+            "إعدادي هندسة (Level 0)", 
+            "سنة ثانية (Level 1)", 
+            "سنة ثالثة (Level 2)", 
+            "سنة رابعة (Level 3)", 
+            "سنة خامسة (Level 4)"
+        ];
         
         const subjectsData = {
-            "Freshman (إعدادي)-الترم الأول": [
-                "BAS 011 - Engineering Mathematics 1[cite: 1]",
-                "BAS 021 - Engineering Physics 1[cite: 1]",
-                "MEC 051 - Engineering Drawing & Projection[cite: 1]",
-                "GEN 002 - English Language 1[cite: 1]"
+            "إعدادي هندسة (Level 0)-مواد تحديد المستوى": [
+                "English 0",
+                "Math 0",
+                "Physics 0"
             ],
-            "Freshman (إعدادي)-الترم الثاني": [
-                "BAS 012 - Engineering Mathematics 2[cite: 1]",
-                "BAS 022 - Engineering Physics 2[cite: 1]",
-                "MEC 022 - Engineering Mechanics[cite: 1]",
-                "BAS 031 - Engineering Chemistry[cite: 1]",
-                "MEC 052 - Manufacturing Technology[cite: 1]",
-                "CCE 001 - Introduction to Computers[cite: 1]"
+            "إعدادي هندسة (Level 0)-الترم الأول": [
+                "BAS 011 - Engineering Mathematics 1",
+                "BAS 021 - Engineering Physics 1",
+                "MEC 051 - Engineering Drawing & Projection",
+                "GEN 002 - English Language 1",
+                "MEC 022 - Engineering Mechanics1"
+           ],   
+            "إعدادي هندسة (Level 0)-الترم الثاني": [
+                "BAS 012 - Engineering Mathematics 2",
+                "BAS 022 - Engineering Physics 2",
+                "MEC 022 - Engineering Mechanics2",
+                "BAS 031 - Engineering Chemistry",
+                "MEC 052 - Manufacturing Technology",
+                "CCE 001 - Introduction to Computers"
             ],
-            "Sophomore (سنة ثانية)-الترم الأول": [
-                "BAS 111 - Engineering Mathematics 3[cite: 1]",
-                "MEC 151 - Computer Aided Drawing[cite: 1]",
-                "GEN 101 - English Language 2[cite: 1]",
-                "CIV 111 - Structural Analysis 1[cite: 1]",
-                "CIV 121 - Properties & Strength of Materials[cite: 1]",
-                "CIV 131 - Engineering Surveying 1[cite: 1]"
+            "سنة ثانية (Level 1)-الترم الأول": [
+                "BAS 111 - Engineering Mathematics 3",
+                "MEC 151 - Computer Aided Drawing",
+                "GEN 101 - English Language 2",
+                "CIV 111 - Structural Analysis 1",
+                "CIV 121 - Properties & Strength of Materials",
+                "CIV 131 - Engineering Surveying 1"
             ],
-            "Sophomore (سنة ثانية)-الترم الثاني": [
-                "BAS 113 - Statistics & Numerical Analysis[cite: 1]",
-                "ARC 130 - Basic Building Construction[cite: 1]",
-                "CIV 141 - Civil Engineering Drawing[cite: 1]",
-                "CIV 112 - Structural Analysis 2[cite: 1]",
-                "CIV 122 - Building Construction Materials[cite: 1]",
-                "CIV 142 - Engineering Fluid Mechanics[cite: 1]"
+            "سنة ثانية (Level 1)-الترم الثاني": [
+                "BAS 113 - Statistics & Numerical Analysis",
+                "ARC 130 - Basic Building Construction",
+                "CIV 141 - Civil Engineering Drawing",
+                "CIV 112 - Structural Analysis 2",
+                "CIV 122 - Building Construction Materials",
+                "CIV 142 - Engineering Fluid Mechanics"
             ],
-            "Junior (سنة تالته)-الترم الأول": [
-                "CIV 280 - Engineering Economy[cite: 1]",
-                "GEN 201 - Technical Report Writing[cite: 1]",
-                "CIV 211 - Stress Analysis in Structures[cite: 1]",
-                "CIV 251 - Design of RC Structures 1[cite: 1]",
-                "CIV 221 - Concrete Technology & Quality Control[cite: 1]",
-                "CIV 231 - Engineering Surveying 2[cite: 1]",
-                "CIV 241 - Open Channel Hydraulics[cite: 1]"
+            "سنة ثالثة (Level 2)-الترم الأول": [
+                "CIV 280 - Engineering Economy",
+                "GEN 201 - Technical Report Writing",
+                "CIV 211 - Stress Analysis in Structures",
+                "CIV 251 - Design of RC Structures 1",
+                "CIV 221 - Concrete Technology & Quality Control",
+                "CIV 231 - Engineering Surveying 2",
+                "CIV 241 - Open Channel Hydraulics"
             ],
-            "Junior (سنة تالته)-الترم الثاني": [
-                "GEN XXX - Humanities Elective 1[cite: 1]",
-                "CIV 291 - Transportation Planning & Traffic Engineering[cite: 1]",
-                "CIV 281 - Construction Contracts[cite: 1]",
-                "CIV 252 - Design of RC Structures 2[cite: 1]",
-                "CIV 261 - Geotechnical Engineering 1[cite: 1]",
-                "CIV 242 - Irrigation & Drainage[cite: 1]"
+            "سنة ثالثة (Level 2)-الترم الثاني": [
+                "GEN XXX - Humanities Elective 1",
+                "CIV 291 - Transportation Planning & Traffic Engineering",
+                "CIV 281 - Construction Contracts",
+                "CIV 252 - Design of RC Structures 2",
+                "CIV 261 - Geotechnical Engineering 1",
+                "CIV 242 - Irrigation & Drainage"
             ],
-            "Senior 1 (سنة رابعة - ترم 1)-الترم الأول": [
-                "GEN XXX - Humanities Elective 2[cite: 1]",
-                "CIV 341 - Design of Water Structures 1[cite: 1]",
-                "CIV 331 - Geodesy & Surveying[cite: 1]",
-                "CIV 351 - Design of RC Structures 3[cite: 1]",
-                "CIV 361 - Geotechnical Engineering 2[cite: 1]",
-                "CIV 371 - Design of Steel Structures 1[cite: 1]",
-                "CIV 200 - Practical Training 1[cite: 1]"
+            "سنة رابعة (Level 3)-الترم الأول": [
+                "GEN XXX - Humanities Elective 2",
+                "CIV 341 - Design of Water Structures 1",
+                "CIV 331 - Geodesy & Surveying",
+                "CIV 351 - Design of RC Structures 3",
+                "CIV 361 - Geotechnical Engineering 2",
+                "CIV 371 - Design of Steel Structures 1",
+                "CIV 200 - Practical Training 1"
             ],
-            "Senior 1 (سنة رابعة - ترم 1)-الترم الثاني": [
-                "CIV 343 - Design of Water Structures 2[cite: 1]",
-                "CIV 362 - Geotechnical Engineering 3[cite: 1]",
-                "CIV 391 - Highway Engineering 1[cite: 1]",
-                "CIV 342 - Sanitary Engineering[cite: 1]",
-                "CIV 400A - Graduation Project (1)[cite: 1]"
+            "سنة رابعة (Level 3)-الترم الثاني": [
+                "CIV 343 - Design of Water Structures 2",
+                "CIV 362 - Geotechnical Engineering 3",
+                "CIV 391 - Highway Engineering 1",
+                "CIV 342 - Sanitary Engineering",
+                "CIV 400A - Graduation Project (1)"
             ],
-            "Senior 2 (سنة رابعة - ترم 2)-الترم الأول": [
-                "GEN XXX - Humanities Elective 3[cite: 1]",
-                "CIV 441 - Harbors & Navigation & Shore Protection[cite: 1]",
-                "CIV 4XX - Elective List (1)[cite: 1]",
-                "CIV 4XX - Elective List (2)[cite: 1]",
-                "CIV 471 - Design of Steel Structures 2[cite: 1]",
-                "CIV 491 - Highway Engineering 2[cite: 1]",
-                "CIV 300 - Practical Training 2[cite: 1]"
+            "سنة خامسة (Level 4)-الترم الأول": [
+                "GEN XXX - Humanities Elective 3",
+                "CIV 441 - Harbors & Navigation & Shore Protection",
+                "CIV 4XX - Elective List (1)",
+                "CIV 4XX - Elective List (2)",
+                "CIV 471 - Design of Steel Structures 2",
+                "CIV 491 - Highway Engineering 2",
+                "CIV 300 - Practical Training 2"
             ],
-            "Senior 2 (سنة رابعة - ترم 2)-الترم الثاني": [
-                "GEN XXX - Humanities Elective 4[cite: 1]",
-                "CIV 4XX - Elective List (3)[cite: 1]",
-                "CIV 4XX - Elective List (4)[cite: 1]",
-                "CIV 4XX - Elective List (5)[cite: 1]",
-                "CIV 400B - Graduation Project (2)[cite: 1]"
+            "سنة خامسة (Level 4)-الترم الثاني": [
+                "GEN XXX - Humanities Elective 4",
+                "CIV 4XX - Elective List (3)",
+                "CIV 4XX - Elective List (4)",
+                "CIV 4XX - Elective List (5)",
+                "CIV 400B - Graduation Project (2)"
             ]
         };
 
-        const materialsDriveLinks = {};
+       // 🔗 روابط الدرايف لكل مواد ليفيل زيرو (حط اللينك جوه الكوتيشن)
+        const materialsDriveLinks = {
+            // مواد تحديد المستوى
+            "English 0": {
+                "files": "https://drive.google.com/drive/folders/1FlARIZfH1fcmc6yVG6ybYVHGAawt-J8b?usp=drive_link"
+            },
+            "Math 0": {
+                "files": "https://drive.google.com/drive/folders/12ZjUFuZLXjNd32mvfJb4s0Mqosp1k2Sp?usp=drive_link"
+            },
+            "Physics 0": {
+                "files": "https://drive.google.com/drive/folders/1MJGI6BnvFsvWFE1r1XzPGIrIWnVHzr7Z?usp=drive_link"
+            },
+
+            // ترم أول ليفيل زيرو (حط لينكاتك هنا)
+            "BAS 011 - Engineering Mathematics 1": { "files": "https://drive.google.com/drive/folders/1nh2_XSpz_Z8s9Q0xb0oo5QEy_cAubipj?usp=drive_link" },
+            "BAS 021 - Engineering Physics 1": { "files": "https://drive.google.com/drive/folders/1y0sybK5ewEYFEMuBCoIZwXeLWAxBu8I-?usp=drive_link" },
+            "MEC 051 - Engineering Drawing & Projection": { "files": "https://drive.google.com/drive/folders/12XQFnaSEwbjkTY7gCeODwNT-xFX7xWew?usp=drive_link" },
+            "GEN 002 - English Language 1": { "files": "https://drive.google.com/drive/folders/15xatMANRdRsq1-VWRt47RQhY2X0yqyw2?usp=drive_link" },
+            "MEC 022 - Engineering Mechanics1": { "files": "https://drive.google.com/drive/folders/1ml2dQky9_CBSQNy6tI3cVZN4fjKrnQR5?usp=drive_link" },
+
+
+            // ترم ثاني ليفيل زيرو (حط لينكاتك هنا)
+            "BAS 012 - Engineering Mathematics 2": { "files": "https://drive.google.com/drive/folders/1DOTQafHqNgUiJNkNEyMnMBWj0lYvXBbO?usp=drive_link" },
+            "BAS 022 - Engineering Physics 2": { "files": "https://drive.google.com/drive/folders/14f2xtt2_BJe44_SQx1AaLWygr-56jUSU?usp=sharing" },
+            "MEC 022 - Engineering Mechanics2": { "files": "https://drive.google.com/drive/folders/1J-pO5ySSZFoE9CfhUUcmh7N4lqwJfXZF?usp=drive_link" },
+            "BAS 031 - Engineering Chemistry": { "files": "https://drive.google.com/drive/folders/1jkvi-1fIb0nT_YQ9SStacI3ZGGtJJ5yH?usp=sharing" },
+            "MEC 052 - Manufacturing Technology": { "files": "https://drive.google.com/drive/folders/1n5tjL7NihjQfC5G0hyRhEtX-kRT5gWgL?usp=drive_link" },
+            "CCE 001 - Introduction to Computers": { "files": "رابط_درايف_المادة" }
+        };
+
+        // 📝 التعليمات الخاصة بمواد ليفيل زيرو (اكتب اللي تحبه تحت كل مادة)
+        const levelZeroInstructions = {
+            "English 0": "⚠️ تعليمات المادة: يرجى مراجعة الكويزات والملفات المرفقة بانتظام.",
+            "Math 0": "⚠️ تعليمات المادة: تأكد من حل التمارين أولاً بأول.",
+            "Physics 0": "⚠️ تعليمات المادة: التركيز مطلوب في القوانين الأساسية.",
+            "BAS 011 - Engineering Mathematics 1": "⚠️ تعليمات المادة: يتم رفع الشيتات والملفات تباعاً."
+            // تقدر تضيف أي تعليمات لأي مادة تانية بنفس الطريقة هنا
+        };
 
         const encyclopediaData = {
             "programs": {
@@ -646,6 +715,22 @@
             document.getElementById('selected-level-title').innerText = `المستوى: ${lvl}`;
             document.getElementById('level-screen').classList.add('hidden');
             document.getElementById('term-screen').classList.remove('hidden');
+            
+            const termGrid = document.getElementById('term-grid-container');
+            termGrid.innerHTML = '';
+
+            if (lvl === "إعدادي هندسة (Level 0)") {
+                termGrid.innerHTML = `
+                    <div class="grid-item" onclick="selectTerm('مواد تحديد المستوى')">⚡ مواد تحديد المستوى</div>
+                    <div class="grid-item" onclick="selectTerm('الترم الأول')">الترم الأول</div>
+                    <div class="grid-item" onclick="selectTerm('الترم الثاني')">الترم الثاني</div>
+                `;
+            } else {
+                termGrid.innerHTML = `
+                    <div class="grid-item" onclick="selectTerm('الترم الأول')">الترم الأول</div>
+                    <div class="grid-item" onclick="selectTerm('الترم الثاني')">الترم الثاني</div>
+                `;
+            }
         }
 
         function selectTerm(term) {
@@ -658,7 +743,7 @@
             grid.innerHTML = '';
             
             const key = `${selectedLevel}-${term}`;
-            const list = subjectsData[key] || ["محتوى مواد هذا الترم سيضاف قريباً"];
+            const list = subjectsData[key] || ["محتوى مواد هذا القسم سيضاف قريباً"];
             
             list.forEach(sub => {
                 const div = document.createElement('div');
@@ -672,6 +757,27 @@
         function chooseSubject(subName) {
             currentItemName = subName;
             document.getElementById('selected-item-title').innerText = `المادة: ${subName}`;
+            
+            // تخصيص الأقسام بناءً على نوع المادة (مادة تحديد مستوى أم مادة عادية)
+            const dynamicGrid = document.getElementById('dynamic-categories-grid');
+            dynamicGrid.innerHTML = '';
+
+            if (selectedLevel === "إعدادي هندسة (Level 0)") {
+                // مواد تحديد المستوى تظهر زر "الكويزات" فقط
+                dynamicGrid.innerHTML = `
+                    <div class="grid-item" onclick="openContent('files')">📁 ملفات المادة</div>
+                `;
+            } else {
+                // باقي المواد تظهر الأقسام الكاملة بشكل طبيعي
+                dynamicGrid.innerHTML = `
+                    <div class="grid-item" onclick="openContent('lectures')">📖 المحاضرات والشروحات</div>
+                    <div class="grid-item" onclick="openContent('youtube')">📺 شروحات اليوتيوب</div>
+                    <div class="grid-item" onclick="openContent('quizzes')">⚡ الكويزات التفاعلية</div>
+                    <div class="grid-item" onclick="openContent('exams')">📋 الامتحانات القديمة</div>
+                    <div class="grid-item" onclick="openContent('sheets')">📝 حلول الشيتات</div>
+                `;
+            }
+
             document.getElementById('subjects-screen').classList.add('hidden');
             document.getElementById('categories-screen').classList.remove('hidden');
         }
@@ -707,36 +813,19 @@
             document.getElementById('subjects-screen').classList.remove('hidden');
         }
 
+        // دالة الفتح المباشر للينك الدرايف فور النقر على القسم
         function openContent(categoryKey) {
-            document.getElementById('categories-screen').classList.add('hidden');
-            document.getElementById('content-screen').classList.remove('hidden');
-
-            const titles = {
-                'lectures': '📖 المحاضرات والشروحات',
-                'youtube': '📺 شروحات اليوتيوب',
-                'quizzes': '⚡ الكويزات التفاعلية',
-                'exams': '📋 الامتحانات القديمة',
-                'sheets': '📝 حلول الشيتات'
-            };
-
-            document.getElementById('content-header-title').innerText = `${currentItemName} - ${titles[categoryKey]}`;
+            let targetUrl = "https://drive.google.com/drive/folders/1FlARIZfH1fcmc6yVG6ybYVHGAawt-J8b?usp=drive_link"; // رابط افتراضي
             
-            let targetUrl = "#";
             if (materialsDriveLinks[currentItemName] && materialsDriveLinks[currentItemName][categoryKey]) {
                 targetUrl = materialsDriveLinks[currentItemName][categoryKey];
             }
 
-            document.getElementById('content-body').innerHTML = `
-                <div style="background: var(--bg-color); border: 1px solid var(--border); padding: 20px; border-radius: 12px;">
-                    <p style="margin-bottom: 10px;">الملفات والفيديوهات الخاصة بقسم <strong>${titles[categoryKey]}</strong>:</p>
-                    <a href="${targetUrl}" target="_blank" class="action-btn">تحميل الملف / مشاهدة المحتوى 📁</a>
-                </div>
-            `;
-        }
-
-        function backToCategories() {
-            document.getElementById('content-screen').classList.add('hidden');
-            document.getElementById('categories-screen').classList.remove('hidden');
+            if (targetUrl && targetUrl !== "#") {
+                window.open(targetUrl, '_blank');
+            } else {
+                alert("عذراً، الرابط غير متوفر لهذه المادة حالياً.");
+            }
         }
 
         function toggleTheme() {
